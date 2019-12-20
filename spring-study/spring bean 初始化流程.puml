@@ -1,0 +1,24 @@
+@startuml
+AnnotationConfigApplicationContext -> AnnotationConfigApplicationContext: this()
+AnnotationConfigApplicationContext -> AnnotatedBeanDefinitionReader: register()
+AnnotatedBeanDefinitionReader -> AnnotatedBeanDefinitionReader: doRegisterBean()
+AnnotatedBeanDefinitionReader -> BeanDefinitionReaderUtils: registerBeanDefinition()
+BeanDefinitionReaderUtils -> DefaultListableBeanFactory:registerBeanDefinition()
+
+AnnotationConfigApplicationContext -> AbstractApplicationContext:refresh()
+AbstractApplicationContext -> AbstractApplicationContext:prepareRefresh()
+AbstractApplicationContext -> AbstractApplicationContext:obtainFreshBeanFactory()
+AbstractApplicationContext -> AbstractApplicationContext:prepareBeanFactory(beanFactory)
+AbstractApplicationContext -> AbstractApplicationContext:postProcessBeanFactory(beanFactory)
+AbstractApplicationContext -> AbstractApplicationContext:invokeBeanFactoryPostProcessors(beanFactory)
+AbstractApplicationContext -> AbstractApplicationContext:registerBeanPostProcessors(beanFactory)
+AbstractApplicationContext -> AbstractApplicationContext:initMessageSource()
+AbstractApplicationContext -> AbstractApplicationContext:initApplicationEventMulticaster()
+AbstractApplicationContext -> AbstractApplicationContext:onRefresh()
+AbstractApplicationContext -> AbstractApplicationContext:registerListeners()
+AbstractApplicationContext -> AbstractApplicationContext:finishBeanFactoryInitialization(beanFactory)
+AbstractApplicationContext -> AbstractApplicationContext:finishRefresh()
+
+
+
+@enduml
